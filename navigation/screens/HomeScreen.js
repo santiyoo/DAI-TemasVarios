@@ -15,6 +15,11 @@ const HomeScreen = () => {
     console.log('Contactos')
   }
 
+  const NumeroEmergencia = () => {
+    navigation.navigate('NumeroEmergencia')
+    console.log('NumeroEmergencia')
+  }
+
   return (
     <View>
       <TouchableOpacity onPress={Clima}>
@@ -22,6 +27,9 @@ const HomeScreen = () => {
       </TouchableOpacity>
       <TouchableOpacity onPress={Contactos}>
         <Text>Ir A Contactos</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={NumeroEmergencia}>
+        <Text>Ir A NumeroEmergencia</Text>
       </TouchableOpacity>
       <Text>HomeScreen</Text>
     </View>
