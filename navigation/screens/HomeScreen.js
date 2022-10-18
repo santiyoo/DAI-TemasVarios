@@ -25,7 +25,7 @@ const HomeScreen = () => {
   }
 
   const handleWhatsAppPress = async () => {
-    await Linking.openURL("https://wa.me/+5491153445400?text=Probando React Native")
+    await Linking.openURL("https://wa.me/{aca iria el numero de telefono}?text=Probando React Native")
   }
 
   return (
