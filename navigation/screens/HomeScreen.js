@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity, Button, Linking } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native';
 
@@ -20,6 +20,14 @@ const HomeScreen = () => {
     console.log('NumeroEmergencia')
   }
 
+  const handleEmailPress = async () => {
+    await Linking.openURL("mailto:yoopy2705@gmail.com?subject=Asunto Predefinido&body=Probando React Native")
+  }
+
+  const handleWhatsAppPress = async () => {
+    await Linking.openURL("https://wa.me/+5491153445400?text=Probando React Native")
+  }
+
   return (
     <View>
       <TouchableOpacity onPress={Clima}>
@@ -31,6 +39,8 @@ const HomeScreen = () => {
       <TouchableOpacity onPress={NumeroEmergencia}>
         <Text>Ir A NumeroEmergencia</Text>
       </TouchableOpacity>
+      <Button title='Email' onPress={handleEmailPress}/>
+      <Button title='WhatsApp' onPress={handleWhatsAppPress}/>
       <Text>HomeScreen</Text>
     </View>
   )
