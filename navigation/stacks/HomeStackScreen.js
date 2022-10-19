@@ -6,6 +6,7 @@ import ClimaScreen from '../screens/Clima/ClimaScreen'
 import HomeScreen from '../screens/HomeScreen'
 import Contactos from '../screens/Contacts/Contacts'
 import NumeroEmergencia from '../screens/NumeroEmergencia/NumeroEmergencia'
+import AccelerometerScreen from '../screens/Accelerometer/Accelerometer'
 
 const Stack = createStackNavigator()
 
@@ -17,6 +18,7 @@ const HomeStackScreen = () => {
             <Stack.Screen name={'Clima'} component={ClimaScreen}/>
             <Stack.Screen name={'Contactos'} component={Contactos}/>
             <Stack.Screen name={'NumeroEmergencia'} component={NumeroEmergencia}/>
+            <Stack.Screen name={'Accelerometer'} component={AccelerometerScreen}/>
         </Stack.Navigator>
     </NavigationContainer>
   )

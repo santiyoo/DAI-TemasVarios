@@ -20,6 +20,11 @@ const HomeScreen = () => {
     console.log('NumeroEmergencia')
   }
 
+  const Accelerometer = () => {
+    navigation.navigate('Accelerometer')
+    console.log('Accelerometer')
+  }
+
   const handleEmailPress = async () => {
     await Linking.openURL("mailto:yoopy2705@gmail.com?subject=Asunto Predefinido&body=Probando React Native")
   }
@@ -30,14 +35,17 @@ const HomeScreen = () => {
 
   return (
     <View>
-      <TouchableOpacity onPress={Clima}>
+      <TouchableOpacity style={{marginVertical: 10}} onPress={Clima}>
         <Text>Ir A Clima</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={Contactos}>
+      <TouchableOpacity style={{marginVertical: 10}} onPress={Contactos}>
         <Text>Ir A Contactos</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={NumeroEmergencia}>
+      <TouchableOpacity style={{marginVertical: 10}} onPress={NumeroEmergencia}>
         <Text>Ir A NumeroEmergencia</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={{marginVertical: 10}} onPress={Accelerometer}>
+        <Text>Ir A Accelerometer</Text>
       </TouchableOpacity>
       <Button title='Email' onPress={handleEmailPress}/>
       <Button title='WhatsApp' onPress={handleWhatsAppPress}/>
