@@ -8,7 +8,7 @@ import Contactos from '../screens/Contacts/Contacts'
 import NumeroEmergencia from '../screens/NumeroEmergencia/NumeroEmergencia'
 import AccelerometerScreen from '../screens/Accelerometer/Accelerometer'
 import Vibrar from '../screens/Vibrar/Vibrar'
-import VideoPlayer from '../screens/VideoPlayer/VideoPlayer'
+import VideoPlayerScreen from '../screens/VideoPlayer/VideoPlayer'
 
 const Stack = createStackNavigator()
 
@@ -22,7 +22,7 @@ const HomeStackScreen = () => {
             <Stack.Screen name={'NumeroEmergencia'} component={NumeroEmergencia}/>
             <Stack.Screen name={'Accelerometer'} component={AccelerometerScreen}/>
             <Stack.Screen name={'Vibrar'} component={Vibrar}/>
-            <Stack.Screen name={'VideoPlayer'} component={VideoPlayer}/>
+            <Stack.Screen name={'VideoPlayer'} component={VideoPlayerScreen}/>
         </Stack.Navigator>
     </NavigationContainer>
   )

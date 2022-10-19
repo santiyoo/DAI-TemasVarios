@@ -32,10 +32,13 @@ export default function AccelerometerScreen() {
         setSubscription(null);
     };
 
+
     useEffect(() => {
-        _subscribe();
-        return () => _unsubscribe();
-    }, []);
+        setTimeout(() => {
+            _subscribe();
+            return () => _unsubscribe();
+        }, 1000);
+    }, [data]);
     
     const handleEmailPress = async () => {
         if(data[0].x > 0.5){

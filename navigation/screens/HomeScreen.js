@@ -25,6 +25,11 @@ const HomeScreen = () => {
     console.log('Accelerometer')
   }
 
+  const VideoPlayer = () => {
+    navigation.navigate('VideoPlayer')
+    console.log('VideoPlayer')
+  }
+
   const handleEmailPress = async () => {
     await Linking.openURL("mailto:yoopy2705@gmail.com?subject=Asunto Predefinido&body=Probando React Native")
   }
@@ -46,6 +51,9 @@ const HomeScreen = () => {
       </TouchableOpacity>
       <TouchableOpacity style={{marginVertical: 10}} onPress={Accelerometer}>
         <Text>Ir A Accelerometer</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={{marginVertical: 10}} onPress={VideoPlayer}>
+        <Text>Ir A VideoPlayer</Text>
       </TouchableOpacity>
       <Button title='Email' onPress={handleEmailPress}/>
       <Button title='WhatsApp' onPress={handleWhatsAppPress}/>
