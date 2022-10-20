@@ -1,61 +1,96 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Button, View, TextInput, Text, TouchableOpacity, ScrollView, Vibration } from 'react-native';
+import { StyleSheet, Button, View, TextInput, Text, TouchableOpacity, ScrollView, Vibration, ImageBackground } from 'react-native';
 import { Video } from 'expo-av';
-import React, {useRef, useState} from 'react';
+import React, {useRef, useState, useContext} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import BackgroundContext from '../../../context/BackgroundContext';
+
+const image = { uri: "https://reactjs.org/logo-og.png" };
 
 export default function App() {
   const [video, setVideo] = useState(null);
   const [status, setStatus] = useState({});
   const [value, setValue] = useState('')
   const videoRef = useRef(null);
+  const {background, setBackground} = useContext(BackgroundContext);
 
-    const saveValue = () =>{
-        if(video){
-            AsyncStorage.setItem('video', video)
-            setVideo('')
-            alert('video guardado')
-        } else{
-            alert('Ingrese un video')
-            Vibration.vibrate(3 * 1000)
-        }
-    }
+  const saveValue = () =>{
+      if(video){
+          AsyncStorage.setItem('video', video)
+          setVideo('')
+          alert('video guardado')
+      } else{
+          alert('Ingrese un video')
+          Vibration.vibrate(3 * 1000)
+      }
+  }
 
-    const getValue = () => {
-        AsyncStorage.getItem('video')
-        .then(value => {
-            setValue(value)
-            setVideo(value)
-        })
-    }
+  const getValue = () => {
+      AsyncStorage.getItem('video')
+      .then(value => {
+          setValue(value)
+          setVideo(value)
+      })
+  }
 
   return (
     <View style={styles.container}>
-      <Text style={styles.titleText}>Video Player</Text>
-      <TextInput
-          placeholder='Enter Video URL'
-          value={video}
-          onChangeText={(data)=>setVideo(data)}
-          underlineColorAndroid='transparent'
-          style={styles.input}
-      />
-      <Video
-        ref={videoRef}
-        style={styles.video}
-        source={{uri: video}}
-        useNativeControls
-        onPlaybackStatusUpdate={setStatus}
-      />
-      <ScrollView>
-        <TouchableOpacity style={styles.buttonStyle} onPress={saveValue}>
-            <Text style={styles.buttonTextStyle}>Save Value</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonStyle} onPress={getValue}>
-            <Text style={styles.buttonTextStyle}>Get Value</Text>
-        </TouchableOpacity>
-        <StatusBar style="auto" />
-      </ScrollView>
-    </View>
+    {!background ? (
+      <View style={styles.container}>
+          <ImageBackground source={image} resizeMode="cover" style={styles.image}>
+            <Text style={styles.titleText}>Video Player</Text>
+            <TextInput
+                placeholder='Enter Video URL'
+                value={video}
+                onChangeText={(data)=>setVideo(data)}
+                underlineColorAndroid='transparent'
+                style={styles.input}
+            />
+            <Video
+              ref={videoRef}
+              style={styles.video}
+              source={{uri: video}}
+              useNativeControls
+              onPlaybackStatusUpdate={setStatus}
+            />
+              <TouchableOpacity style={styles.buttonStyle} onPress={saveValue}>
+                  <Text style={styles.buttonTextStyle}>Save Value</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.buttonStyle} onPress={getValue}>
+                  <Text style={styles.buttonTextStyle}>Get Value</Text>
+              </TouchableOpacity>
+              <StatusBar style="auto" />
+          </ImageBackground>
+        </View>
+    ) : (
+      <View style={styles.container}>
+          <ImageBackground source={{uri:background}} resizeMode="cover" style={styles.image}>
+            <Text style={styles.titleText}>Video Player</Text>
+            <TextInput
+                placeholder='Enter Video URL'
+                value={video}
+                onChangeText={(data)=>setVideo(data)}
+                underlineColorAndroid='transparent'
+                style={styles.input}
+            />
+            <Video
+              ref={videoRef}
+              style={styles.video}
+              source={{uri: video}}
+              useNativeControls
+              onPlaybackStatusUpdate={setStatus}
+            />
+              <TouchableOpacity style={styles.buttonStyle} onPress={saveValue}>
+                  <Text style={styles.buttonTextStyle}>Save Value</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.buttonStyle} onPress={getValue}>
+                  <Text style={styles.buttonTextStyle}>Get Value</Text>
+              </TouchableOpacity>
+              <StatusBar style="auto" />
+          </ImageBackground>
+        </View>
+    )}
+  </View>
   );
 }
 
@@ -108,3 +143,4 @@ const styles = StyleSheet.create({
       textAlign: 'center',
   }
 });
+

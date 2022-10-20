@@ -86,7 +86,6 @@ const NumeroEmergencia = () => {
                 )}
             </View>
         </SafeAreaView>
-
     )
 }
 
