@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Button, View, TextInput, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { StyleSheet, Button, View, TextInput, Text, TouchableOpacity, ScrollView, Vibration } from 'react-native';
 import { Video } from 'expo-av';
 import React, {useRef, useState} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage'
@@ -17,6 +17,7 @@ export default function App() {
             alert('video guardado')
         } else{
             alert('Ingrese un video')
+            Vibration.vibrate(3 * 1000)
         }
     }
 
