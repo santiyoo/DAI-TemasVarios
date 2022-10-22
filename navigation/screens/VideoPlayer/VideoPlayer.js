@@ -34,65 +34,99 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
-    {!background ? (
-      <View style={styles.container}>
-          <ImageBackground source={image} resizeMode="cover" style={styles.image}>
-            <Text style={styles.titleText}>Video Player</Text>
-            <TextInput
-                placeholder='Enter Video URL'
-                value={video}
-                onChangeText={(data)=>setVideo(data)}
-                underlineColorAndroid='transparent'
-                style={styles.input}
-            />
-            <Video
-              ref={videoRef}
-              style={styles.video}
-              source={{uri: video}}
-              useNativeControls
-              onPlaybackStatusUpdate={setStatus}
-            />
-              <TouchableOpacity style={styles.buttonStyle} onPress={saveValue}>
-                  <Text style={styles.buttonTextStyle}>Save Value</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.buttonStyle} onPress={getValue}>
-                  <Text style={styles.buttonTextStyle}>Get Value</Text>
-              </TouchableOpacity>
-              <StatusBar style="auto" />
-          </ImageBackground>
-        </View>
-    ) : (
-      <View style={styles.container}>
-          <ImageBackground source={{uri:background}} resizeMode="cover" style={styles.image}>
-            <Text style={styles.titleText}>Video Player</Text>
-            <TextInput
-                placeholder='Enter Video URL'
-                value={video}
-                onChangeText={(data)=>setVideo(data)}
-                underlineColorAndroid='transparent'
-                style={styles.input}
-            />
-            <Video
-              ref={videoRef}
-              style={styles.video}
-              source={{uri: video}}
-              useNativeControls
-              onPlaybackStatusUpdate={setStatus}
-            />
-              <TouchableOpacity style={styles.buttonStyle} onPress={saveValue}>
-                  <Text style={styles.buttonTextStyle}>Save Value</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.buttonStyle} onPress={getValue}>
-                  <Text style={styles.buttonTextStyle}>Get Value</Text>
-              </TouchableOpacity>
-              <StatusBar style="auto" />
-          </ImageBackground>
-        </View>
-    )}
-  </View>
-  );
-}
+    // <View style={styles.container}>
+    //   <ImageBackground source={{uri:background}} resizeMode="cover" style={styles.image}>
+    //   <Text style={styles.titleText}>Video Player</Text>
+    //   <TextInput
+    //       placeholder='Enter Video URL'
+    //       value={video}
+    //       onChangeText={(data)=>setVideo(data)}
+    //       underlineColorAndroid='transparent'
+    //       style={styles.input}
+    //   />
+    //   <Video
+    //     ref={videoRef}
+    //     style={styles.video}
+    //     source={{uri: video}}
+    //     useNativeControls
+    //     onPlaybackStatusUpdate={setStatus}
+    //   />
+    //   <ScrollView>
+    //     <TouchableOpacity style={styles.buttonStyle} onPress={saveValue}>
+    //         <Text style={styles.buttonTextStyle}>Save Value</Text>
+    //     </TouchableOpacity>
+    //     <TouchableOpacity style={styles.buttonStyle} onPress={getValue}>
+    //         <Text style={styles.buttonTextStyle}>Get Value</Text>
+    //     </TouchableOpacity>
+    //     <StatusBar style="auto" />
+    //   </ScrollView>
+    //   </ImageBackground>
+    // </View>
+
+<View style={styles.container}>
+{!background ? (
+  <View style={styles.container}>
+      <ImageBackground source={image} resizeMode="cover" style={styles.image}>
+        <Text style={styles.titleText}>Video Player</Text>
+        <TextInput
+          placeholder='Enter Video URL'
+          value={video}
+          onChangeText={(data)=>setVideo(data)}
+          underlineColorAndroid='transparent'
+          style={styles.input}
+      />
+      <Video
+        ref={videoRef}
+        style={styles.video}
+        source={{uri: video}}
+        useNativeControls
+        onPlaybackStatusUpdate={setStatus}
+      />
+      <ScrollView>
+        <TouchableOpacity style={styles.buttonStyle} onPress={saveValue}>
+            <Text style={styles.buttonTextStyle}>Save Value</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.buttonStyle} onPress={getValue}>
+            <Text style={styles.buttonTextStyle}>Get Value</Text>
+        </TouchableOpacity>
+        <StatusBar style="auto" />
+      </ScrollView>
+      </ImageBackground>
+    </View>
+) : (
+  <View style={styles.container}>
+      <ImageBackground source={{uri:background}} resizeMode="cover" style={styles.image}>
+      <Text style={styles.titleText}>Video Player</Text>
+        <TextInput
+          placeholder='Enter Video URL'
+          value={video}
+          onChangeText={(data)=>setVideo(data)}
+          underlineColorAndroid='transparent'
+          style={styles.input}
+      />
+      <Video
+        ref={videoRef}
+        style={styles.video}
+        source={{uri: video}}
+        useNativeControls
+        onPlaybackStatusUpdate={setStatus}
+      />
+      <ScrollView>
+        <TouchableOpacity style={styles.buttonStyle} onPress={saveValue}>
+            <Text style={styles.buttonTextStyle}>Save Value</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.buttonStyle} onPress={getValue}>
+            <Text style={styles.buttonTextStyle}>Get Value</Text>
+        </TouchableOpacity>
+        <StatusBar style="auto" />
+      </ScrollView>
+      </ImageBackground>
+    </View>
+)}
+</View>
+    );
+  }
+  
 
 const styles = StyleSheet.create({
   container: {
@@ -104,7 +138,10 @@ const styles = StyleSheet.create({
   video: {
     flex: 1,
     alignSelf: 'stretch',
-    marginVertical: 10
+    marginVertical: 10,
+    marginHorizontal: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   buttons: {
     margin: 16
@@ -112,7 +149,7 @@ const styles = StyleSheet.create({
   input: {
     textAlign: 'center',
     height: 60,
-    width: '80%',
+    width: '100%',
     fontSize: 15,
     marginVertical: 10,
     justifyContent: 'center',
@@ -122,6 +159,7 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       textAlign: 'center',
       marginTop: 15,
+      color: '#fff'
   },
   buttonStyle: {
       fontSize: 16,
@@ -141,6 +179,9 @@ const styles = StyleSheet.create({
   textStyle: {
       padding: 10,
       textAlign: 'center',
-  }
+  },
+  image: {
+    flex: 1,
+    justifyContent: "center",
+},
 });
-
