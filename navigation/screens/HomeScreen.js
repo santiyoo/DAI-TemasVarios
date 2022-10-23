@@ -44,6 +44,11 @@ const HomeScreen = () => {
     console.log('ImagePicker')
   }
 
+  const QR = () => {
+    navigation.navigate('Qr')
+    console.log('Qr')
+  }
+
   const handleEmailPress = async () => {
     await Linking.openURL("mailto:yoopy2705@gmail.com?subject=Asunto Predefinido&body=Probando React Native")
   }
@@ -80,11 +85,8 @@ const HomeScreen = () => {
             <TouchableOpacity style={styles.appButtonContainer} onPress={ImagePicker}>
               <Text style={styles.appButtonText}>Image Picker</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.appButtonContainer} onPress={handleEmailPress}>
-              <Text style={styles.appButtonText}>Enviar Email</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.appButtonContainer} onPress={handleWhatsAppPress}>
-              <Text style={styles.appButtonText}>Enviar WhatsApp</Text>
+            <TouchableOpacity style={styles.appButtonContainer} onPress={QR}>
+              <Text style={styles.appButtonText}>QR</Text>
             </TouchableOpacity>
             </ScrollView>
             </ImageBackground>
@@ -115,11 +117,8 @@ const HomeScreen = () => {
             <TouchableOpacity style={styles.appButtonContainer} onPress={ImagePicker}>
               <Text style={styles.appButtonText}>Ir A ImagePicker</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.appButtonContainer} onPress={handleEmailPress}>
-              <Text style={styles.appButtonText}>Enviar Email</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.appButtonContainer} onPress={handleWhatsAppPress}>
-              <Text style={styles.appButtonText}>Enviar WhatsApp</Text>
+            <TouchableOpacity style={styles.appButtonContainer} onPress={QR}>
+              <Text style={styles.appButtonText}>QR</Text>
             </TouchableOpacity>
             </ScrollView>
           </ImageBackground>

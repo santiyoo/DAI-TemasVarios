@@ -10,6 +10,8 @@ import AccelerometerScreen from '../screens/Accelerometer/Accelerometer'
 import VideoPlayerScreen from '../screens/VideoPlayer/VideoPlayer'
 import CameraFondo from '../screens/Camera/Camera'
 import ImagePickerScreen from '../screens/ImagePicker/ImagePicker'
+import Qr from '../screens/QR/Qr'
+import Camera from '../screens/QR/Camera'
 
 const Stack = createStackNavigator()
 
@@ -25,6 +27,8 @@ const HomeStackScreen = () => {
           <Stack.Screen name={'VideoPlayer'} component={VideoPlayerScreen}/>
           <Stack.Screen name={'CameraFondo'} component={CameraFondo}/>
           <Stack.Screen name={'ImagePicker'} component={ImagePickerScreen}/>
+          <Stack.Screen name={'Qr'} component={Qr}/>
+          <Stack.Screen name={'Camera'} component={Camera}/>
       </Stack.Navigator>
     </NavigationContainer>
   )
